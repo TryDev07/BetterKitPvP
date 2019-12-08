@@ -1,4 +1,5 @@
 KitPvP:
+- spawn system
 - Combat log
 - NPC Shop
 - NPC KitSelector
