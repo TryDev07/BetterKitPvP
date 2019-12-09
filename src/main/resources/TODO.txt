@@ -1,9 +1,10 @@
 KitPvP:
-- spawn system
-- Combat log
-- NPC Shop
-- NPC KitSelector
-- kill assist
-- scoreboard
-- Leaderboard
-- level system
+- spawn system [+]
+- portal system [-]
+- Combat log [-]
+- NPC Shop [-]
+- NPC KitSelector [-]
+- kill assist [-]
+- scoreboard [-]
+- Leaderboard [-]
+- level system [-]
