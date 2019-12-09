@@ -3,3 +3,11 @@ name: BetterKitPvP
 version: 0.0.1
 author: TryDev07
 website: https://github.com/TryDev07
+
+commands:
+  setspawn:
+    description: set the spawn for the server
+  AddRandomSpawn:
+    description: add a random spawnpoint
+  help:
+    description: help command

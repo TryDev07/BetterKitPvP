@@ -1,6 +1,7 @@
 package nl.trydev07.betterkitpvp.command.kitpvp.Admin;
 
 import nl.trydev07.betterkitpvp.command.CommandHandler;
+import nl.trydev07.betterkitpvp.handlers.LocationHandler;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -18,6 +19,6 @@ public class setSpawnCommand extends CommandHandler {
     @Override
     public void execute(CommandSender sender, String[] args) {
         Player p = (Player) sender;
-
+        LocationHandler.getLocationHandler().setSpawnPoint(p);
     }
 }

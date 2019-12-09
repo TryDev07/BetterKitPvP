@@ -11,23 +11,23 @@ import java.util.HashMap;
  */
 public class OOBLocation {
 
-    Location spawnLocation;
-    HashMap<String, Location> randomSpawnLocations = new HashMap<String, Location>();
+    String spawnLocation;
+    HashMap<String, String> randomSpawnLocations = new HashMap<String, String>();
 
-    public Location getSpawnLocation() {
+    public String getSpawnLocation() {
         return spawnLocation;
     }
 
-    public void setSpawnLocation(Location spawnLocation) {
+    public void setSpawnLocation(String spawnLocation) {
         this.spawnLocation = spawnLocation;
     }
 
-    public HashMap<String, Location> getRandomSpawnLocations() {
+    public HashMap<String, String> getRandomSpawnLocations() {
         return randomSpawnLocations;
     }
 
 
-    public void setRandomSpawnLocations(String name, Location location) {
+    public void setRandomSpawnLocations(String name, String location) {
         randomSpawnLocations.put(name, location);
     }
 }
