@@ -10,10 +10,20 @@ import org.bukkit.Material;
  */
 public class OOBPortal {
 
+    String PortalName;
+
     String loc1;
     String loc2;
 
     Material material;
+
+    public String getPortalName() {
+        return PortalName;
+    }
+
+    public void setPortalName(String portalName) {
+        PortalName = portalName;
+    }
 
     public Material getMaterial() {
         return material;

@@ -11,3 +11,5 @@ commands:
     description: add a random spawnpoint
   help:
     description: help command
+  Portal:
+    description: Create/Delete a portal

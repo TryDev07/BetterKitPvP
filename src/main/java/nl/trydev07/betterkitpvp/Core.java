@@ -1,6 +1,7 @@
 package nl.trydev07.betterkitpvp;
 
 import nl.trydev07.betterkitpvp.command.CommandHandler;
+import nl.trydev07.betterkitpvp.command.CommandLoader;
 import nl.trydev07.betterkitpvp.handlers.LocationHandler;
 import nl.trydev07.betterkitpvp.utilitys.FileManager;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -29,7 +30,7 @@ public class Core extends JavaPlugin {
         fileManager = new FileManager(instance);
         fileManager.getConfig("Messages.yml").copyDefaults(true).save();
 
-        CommandHandler.registerCommands(this);
+        new CommandLoader();
 
         new LocationHandler().loadLocations();
     }

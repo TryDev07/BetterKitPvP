@@ -11,9 +11,11 @@ import org.bukkit.entity.Player;
  */
 public interface InterfacePortal {
 
-    void setMaterial(Material material);
+    void Create(String name);
 
-    void setLocations(Location location1, Location location2);
+    void setMaterial(String portalName, Material material);
+
+    void setLocations(String portalName, Location location1, Location location2);
 
     void loadPortals();
 

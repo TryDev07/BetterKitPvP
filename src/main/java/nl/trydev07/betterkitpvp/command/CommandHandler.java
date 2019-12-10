@@ -26,7 +26,6 @@ public abstract class CommandHandler implements CommandExecutor{
     private final String commandName;
     private final String permission;
     private final boolean canConsoleUse;
-    public static JavaPlugin plugin;
 
 
     public abstract void execute(CommandSender sender, String[] args);
@@ -35,7 +34,7 @@ public abstract class CommandHandler implements CommandExecutor{
         this.commandName = commandName;
         this.permission = permission;
         this.canConsoleUse = canConsoleUse;
-        plugin.getCommand(commandName).setExecutor(this);
+        Core.getInstance().getCommand(commandName).setExecutor(this);
     }
 
 
@@ -55,11 +54,4 @@ public abstract class CommandHandler implements CommandExecutor{
         return true;
     }
 
-
-    public final static void registerCommands(JavaPlugin pl){
-        plugin = pl;
-        new setSpawnCommand();
-        new addRandomSpawnCommand();
-        new helpCommand();
-    }
 }
