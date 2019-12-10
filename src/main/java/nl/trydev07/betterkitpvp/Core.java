@@ -1,8 +1,9 @@
 package nl.trydev07.betterkitpvp;
 
-import nl.trydev07.betterkitpvp.command.CommandHandler;
 import nl.trydev07.betterkitpvp.command.CommandLoader;
+import nl.trydev07.betterkitpvp.events.EventLoader;
 import nl.trydev07.betterkitpvp.handlers.LocationHandler;
+import nl.trydev07.betterkitpvp.handlers.PortalHandler;
 import nl.trydev07.betterkitpvp.utilitys.FileManager;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -31,14 +32,28 @@ public class Core extends JavaPlugin {
         fileManager.getConfig("Messages.yml").copyDefaults(true).save();
 
         new CommandLoader();
-
+        new EventLoader();
         new LocationHandler().loadLocations();
+
+
+        File folder = new File(Core.getInstance().getDataFolder() + "\\Data\\Portals\\");
+        File[] listOfFiles = folder.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                new PortalHandler().Create(listOfFiles[i].getName().replaceAll(".json", ""));
+            }
+        }
+
     }
 
     @Override
     public void onDisable() {
         super.onDisable();
         LocationHandler.getLocationHandler().save();
+
+        for(String string : PortalHandler.getPortalHandlerMap().keySet()) {
+            PortalHandler.getPortalHandler(string).save();
+        }
     }
 
     public static FileManager getFileManager() {

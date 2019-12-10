@@ -13,9 +13,9 @@ public interface InterfacePortal {
 
     void Create(String name);
 
-    void setMaterial(String portalName, Material material);
+    void Remove();
 
-    void setLocations(String portalName, Location location1, Location location2);
+    void setMaterial(String portalName, Material material);
 
     void loadPortals();
 

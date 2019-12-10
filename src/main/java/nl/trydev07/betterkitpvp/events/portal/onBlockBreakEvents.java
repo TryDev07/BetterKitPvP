@@ -1,9 +1,11 @@
-package nl.trydev07.betterkitpvp.command.kitpvp.Admin.portal;
+package nl.trydev07.betterkitpvp.events.portal;
 
 import nl.trydev07.betterkitpvp.utilitys.utils;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -12,16 +14,20 @@ import org.bukkit.inventory.meta.ItemMeta;
  * Copyright to TryDev07 ©
  * Github: https://github.com/TryDev07
  */
-public class ToolCommand {
+public class onBlockBreakEvents implements Listener{
 
-
-    public ToolCommand(Player player){
+    @EventHandler
+    public void onBreak(BlockBreakEvent event){
         ItemStack stack = new ItemStack(Material.DIAMOND_AXE);
         ItemMeta stackMeta = stack.getItemMeta();
         stackMeta.setDisplayName(utils.format("&8[&eBetterKitPvP&8]&7"));
         stackMeta.addEnchant(Enchantment.DURABILITY,1,false);
         stack.setItemMeta(stackMeta);
 
-        player.getInventory().addItem(stack);
+        if(event.getPlayer().getItemInHand().getType().equals(Material.DIAMOND_AXE)){
+            if(event.getPlayer().getItemInHand().getItemMeta().equals(stack.getItemMeta())) {
+                event.setCancelled(true);
+            }
+        }
     }
 }
