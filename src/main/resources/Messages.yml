@@ -1,4 +1,8 @@
 AddRandomSpawnPoint: "&8[&eBetterKitPvP&8] &7- &fSuccefully added SpawnPoint %NAME%."
 RandomSpawnPointName: "&8[&eBetterKitPvP&8] &7- &fYou have to add a name to the RandomSpawnPoint."
 SpawnPoint: "&8[&eBetterKitPvP&8] &7- &fSuccefully set SpawnPoint."
+NoPortalSelection: "&8[&eBetterKitPvP&8] &7- &fYou have to make a selection first"
+PortalCreate: "&8[&eBetterKitPvP&8] &7- &fCreated portal %NAME% With the material %MATERIAL%."
+PortalRemove: "&8[&eBetterKitPvP&8] &7- &fRemoved portal %NAME%."
+PortalTool: "&8[&eBetterKitPvP&8] &7- &fYou got the portal tool into your inventory."
 NoPermission: "&8[&eBetterKitPvP&8] &7- &fYou do not have the %PERMISSION% for this command"

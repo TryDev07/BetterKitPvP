@@ -15,7 +15,7 @@ public interface InterfacePortal {
 
     void Remove();
 
-    void setMaterial(String portalName, Material material);
+    void setMaterial(String portalName, Material material, Player player);
 
     void loadPortals();
 

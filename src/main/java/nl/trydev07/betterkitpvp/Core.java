@@ -37,10 +37,12 @@ public class Core extends JavaPlugin {
 
 
         File folder = new File(Core.getInstance().getDataFolder() + "\\Data\\Portals\\");
-        File[] listOfFiles = folder.listFiles();
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                new PortalHandler().Create(listOfFiles[i].getName().replaceAll(".json", ""));
+        if(folder.exists() == true){
+            File[] listOfFiles = folder.listFiles();
+            for (int i = 0; i < listOfFiles.length; i++) {
+                if (listOfFiles[i].isFile()) {
+                    new PortalHandler().Create(listOfFiles[i].getName().replaceAll(".json", ""));
+                }
             }
         }
 
@@ -50,9 +52,10 @@ public class Core extends JavaPlugin {
     public void onDisable() {
         super.onDisable();
         LocationHandler.getLocationHandler().save();
-
-        for(String string : PortalHandler.getPortalHandlerMap().keySet()) {
-            PortalHandler.getPortalHandler(string).save();
+        if(PortalHandler.getPortalHandlerMap().keySet() != null) {
+            for (String string : PortalHandler.getPortalHandlerMap().keySet()) {
+                PortalHandler.getPortalHandler(string).save();
+            }
         }
     }
 

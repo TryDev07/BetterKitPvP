@@ -10,6 +10,7 @@ import nl.trydev07.betterkitpvp.events.portal.onWaterFlowEvent;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import java.io.*;
@@ -26,8 +27,8 @@ public class PortalHandler implements InterfacePortal {
 
     private static Map<String, PortalHandler> portalHandlerMap = new HashMap<String, PortalHandler>();
 
-    static Location location1;
-    static Location location2;
+    public static Location location1;
+    public static Location location2;
 
     public static Map<String, PortalHandler> getPortalHandlerMap() {
         return portalHandlerMap;
@@ -69,19 +70,22 @@ public class PortalHandler implements InterfacePortal {
 
     @Override
     public void Remove() {
+        onWaterFlowEvent.FLOW = false;
         for(String s : portal.getLocationsOfWater()){
             Location loc = LocationDeserializer.getLocationFromString(s);
 
             Block block = loc.getWorld().getBlockAt(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ());
-            if(block.getType() == getOOBPortal().getMaterial()){
-                block.setType(Material.AIR);
-            }
+            block.setType(Material.AIR);
+        }
+        File file = new File(Core.getInstance().getDataFolder() + "\\Data\\Portals\\", name + ".json");
+        if(file.exists() == true){
+            file.delete();
         }
         portalHandlerMap.remove(name);
     }
 
     @Override
-    public void setMaterial(String portalName, Material material) {
+    public void setMaterial(String portalName, Material material, Player player) {
         if (material != null) {
             if (portalName != null) {
                 Location point1 = location1;

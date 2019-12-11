@@ -31,11 +31,11 @@ public class onClickEvent implements Listener {
                 Action a = event.getAction();
                 if (a == Action.LEFT_CLICK_BLOCK) {
                     PortalHandler.setLocation1(event.getClickedBlock().getLocation());
-                    event.getPlayer().sendMessage("pos1");
+                    event.getPlayer().sendMessage(utils.format("&8[&eBetterKitPvP&8] &7- &fPosition 1 has been set"));
                 }
                 if (a == Action.RIGHT_CLICK_BLOCK) {
                     PortalHandler.setLocation2(event.getClickedBlock().getLocation());
-                    event.getPlayer().sendMessage("pos2");
+                    event.getPlayer().sendMessage(utils.format("&8[&eBetterKitPvP&8] &7- &fPosition 2 has been set"));
                 }
             }
         }
