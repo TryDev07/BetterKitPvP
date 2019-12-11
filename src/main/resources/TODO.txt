@@ -1,6 +1,6 @@
 KitPvP:
 - spawn system [+]
-- portal system [-]
+- portal system [+] //only make a random
 - Combat log [-]
 - NPC Shop [-]
 - NPC KitSelector [-]

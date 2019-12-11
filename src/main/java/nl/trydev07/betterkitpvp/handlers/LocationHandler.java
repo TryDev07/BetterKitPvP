@@ -19,7 +19,7 @@ import java.util.logging.Level;
  */
 public class LocationHandler implements InterfaceLocation {
 
-    private OOBLocation OOBLocation = new OOBLocation();
+    public OOBLocation OOBLocation = new OOBLocation();
     private Gson gson = new Gson();
     private static LocationHandler locationHandler;
 

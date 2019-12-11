@@ -14,8 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Level;
 
 /* TryDev07 created on 12/9/2019
@@ -39,7 +38,7 @@ public class PortalHandler implements InterfacePortal {
             if (string.equals(name)) {
                 return portalHandlerMap.get(name);
             } else {
-                utils.Logger(Level.WARNING, "Could not find the portal " + name);
+
             }
         }
         return null;
@@ -49,7 +48,11 @@ public class PortalHandler implements InterfacePortal {
     private Gson gson = new Gson();
     private String name;
 
+    public Set<Location> locationList = new HashSet<Location>();
 
+    public Set<Location> getLocationList() {
+        return locationList;
+    }
 
     public PortalHandler() {
     }
@@ -135,7 +138,9 @@ public class PortalHandler implements InterfacePortal {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        for (String portalBlocks : PortalHandler.getPortalHandler(name).getOOBPortal().getLocationsOfWater()) {
+            locationList.add(LocationDeserializer.getLocationFromString(portalBlocks));
+        }
     }
 
 

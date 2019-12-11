@@ -3,6 +3,7 @@ package nl.trydev07.betterkitpvp.events;
 import nl.trydev07.betterkitpvp.Core;
 import nl.trydev07.betterkitpvp.events.portal.onBlockBreakEvents;
 import nl.trydev07.betterkitpvp.events.portal.onClickEvent;
+import nl.trydev07.betterkitpvp.events.portal.onWalkInPortalEvent;
 import nl.trydev07.betterkitpvp.events.portal.onWaterFlowEvent;
 import org.bukkit.plugin.PluginManager;
 
@@ -19,5 +20,6 @@ public class EventLoader {
         pluginManager.registerEvents(new onBlockBreakEvents(), Core.getInstance());
         pluginManager.registerEvents(new onClickEvent(), Core.getInstance());
         pluginManager.registerEvents(new onWaterFlowEvent(), Core.getInstance());
+        pluginManager.registerEvents(new onWalkInPortalEvent(), Core.getInstance());
     }
 }
