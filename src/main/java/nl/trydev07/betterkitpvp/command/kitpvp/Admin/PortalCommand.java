@@ -68,7 +68,9 @@ public class PortalCommand extends CommandHandler {
         } else if (args[0].toLowerCase().equalsIgnoreCase("setwaterflow")) {
             if(args[1].toLowerCase().equalsIgnoreCase("false")) {
                 onWaterFlowEvent.FLOW = false;
+                sender.sendMessage(utils.format(Core.getFileManager().getConfig("Messages.yml").get("WaterFlow").toString().replaceAll("%BOOLEAN%", args[1])));
             }else if(args[1].toLowerCase().equalsIgnoreCase("true")) {
+                sender.sendMessage(utils.format(Core.getFileManager().getConfig("Messages.yml").get("WaterFlow").toString().replaceAll("%BOOLEAN%", args[1])));
                 onWaterFlowEvent.FLOW = true;
             }else{
                 sender.sendMessage(utils.format("&7----------&8[&eBetterKitPvP&8]&7----------"));

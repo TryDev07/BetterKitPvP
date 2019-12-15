@@ -66,7 +66,6 @@ public class PortalHandler implements InterfacePortal {
         if (name != null) {
             this.name = name;
             portalHandlerMap.put(name, this);
-            loadPortals();
         }
 
     }
@@ -104,6 +103,7 @@ public class PortalHandler implements InterfacePortal {
                             if (block.getType() == Material.AIR) {
                                 block.setType(material);
                                 portal.addLocationsOfWater(LocationDeserializer.getStringFromLocation(block.getLocation()));
+                                locationList.add(block.getLocation());
                             }
                         }
                     }

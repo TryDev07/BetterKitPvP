@@ -6,3 +6,7 @@ PortalCreate: "&8[&eBetterKitPvP&8] &7- &fCreated portal %NAME% With the materia
 PortalRemove: "&8[&eBetterKitPvP&8] &7- &fRemoved portal %NAME%."
 PortalTool: "&8[&eBetterKitPvP&8] &7- &fYou got the portal tool into your inventory."
 NoPermission: "&8[&eBetterKitPvP&8] &7- &fYou do not have the %PERMISSION% for this command"
+WaterFlow: "&8[&eBetterKitPvP&8] &7- &fYou have set the WaterFlow to %BOOLEAN%"
+ShopCreate: "&8[&eBetterKitPvP&8] &7- &fSuccefully created the shop."
+ShopRemove: "&8[&eBetterKitPvP&8] &7- &fSuccefully removed the shop."
+ShopDoesNotExists: "&8[&eBetterKitPvP&8] &7- &fYou have to create the shop first"

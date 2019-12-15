@@ -3,6 +3,7 @@ package nl.trydev07.betterkitpvp;
 import nl.trydev07.betterkitpvp.command.CommandLoader;
 import nl.trydev07.betterkitpvp.events.EventLoader;
 import nl.trydev07.betterkitpvp.handlers.LocationHandler;
+import nl.trydev07.betterkitpvp.handlers.NPCHandler;
 import nl.trydev07.betterkitpvp.handlers.PortalHandler;
 import nl.trydev07.betterkitpvp.utilitys.FileManager;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -37,11 +38,24 @@ public class Core extends JavaPlugin {
 
 
         File folder = new File(Core.getInstance().getDataFolder() + "\\Data\\Portals\\");
-        if(folder.exists() == true){
+        if (folder.exists() == true) {
             File[] listOfFiles = folder.listFiles();
             for (int i = 0; i < listOfFiles.length; i++) {
                 if (listOfFiles[i].isFile()) {
-                    new PortalHandler().Create(listOfFiles[i].getName().replaceAll(".json", ""));
+                    PortalHandler portalHandler = new PortalHandler();
+                    portalHandler.Create(listOfFiles[i].getName().replaceAll(".json", ""));
+                    portalHandler.loadPortals();
+                }
+            }
+        }
+
+        File npcFolder = new File(Core.getInstance().getDataFolder() + "\\Data\\NPC\\");
+        if (npcFolder.exists() == true) {
+            File[] listOfFiles = npcFolder.listFiles();
+            for (int i = 0; i < listOfFiles.length; i++) {
+                if (listOfFiles[i].isFile()) {
+                    NPCHandler NPCHandler = new NPCHandler(listOfFiles[i].getName().replaceAll(".json", ""));
+                    NPCHandler.load();
                 }
             }
         }
@@ -52,10 +66,12 @@ public class Core extends JavaPlugin {
     public void onDisable() {
         super.onDisable();
         LocationHandler.getLocationHandler().save();
-        if(PortalHandler.getPortalHandlerMap().keySet() != null) {
-            for (String string : PortalHandler.getPortalHandlerMap().keySet()) {
-                PortalHandler.getPortalHandler(string).save();
-            }
+        for (String string : PortalHandler.getPortalHandlerMap().keySet()) {
+            PortalHandler.getPortalHandler(string).save();
+        }
+        for (String npc : NPCHandler.getNPCHandler().keySet()) {
+
+            NPCHandler.getNpcHandler(npc).save();
         }
     }
 

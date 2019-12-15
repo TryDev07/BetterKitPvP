@@ -1,6 +1,7 @@
 package nl.trydev07.betterkitpvp.command;
 
 import nl.trydev07.betterkitpvp.command.kitpvp.Admin.PortalCommand;
+import nl.trydev07.betterkitpvp.command.kitpvp.Admin.ShopCommand;
 import nl.trydev07.betterkitpvp.command.kitpvp.Admin.addRandomSpawnCommand;
 import nl.trydev07.betterkitpvp.command.kitpvp.Admin.setSpawnCommand;
 import nl.trydev07.betterkitpvp.command.kitpvp.helpCommand;
@@ -17,5 +18,6 @@ public class CommandLoader {
         new addRandomSpawnCommand();
         new helpCommand();
         new PortalCommand();
+        new ShopCommand();
     }
 }
