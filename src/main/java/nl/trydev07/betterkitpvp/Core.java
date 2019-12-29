@@ -2,12 +2,14 @@ package nl.trydev07.betterkitpvp;
 
 import nl.trydev07.betterkitpvp.command.CommandLoader;
 import nl.trydev07.betterkitpvp.events.EventLoader;
+import nl.trydev07.betterkitpvp.handlers.GUIHandler;
 import nl.trydev07.betterkitpvp.handlers.LocationHandler;
 import nl.trydev07.betterkitpvp.handlers.NPCHandler;
 import nl.trydev07.betterkitpvp.handlers.PortalHandler;
 import nl.trydev07.betterkitpvp.utilitys.FileManager;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 
@@ -36,7 +38,6 @@ public class Core extends JavaPlugin {
         new EventLoader();
         new LocationHandler().loadLocations();
 
-
         File folder = new File(Core.getInstance().getDataFolder() + "\\Data\\Portals\\");
         if (folder.exists() == true) {
             File[] listOfFiles = folder.listFiles();
@@ -60,19 +61,26 @@ public class Core extends JavaPlugin {
             }
         }
 
+
     }
 
     @Override
     public void onDisable() {
-        super.onDisable();
+
         LocationHandler.getLocationHandler().save();
         for (String string : PortalHandler.getPortalHandlerMap().keySet()) {
             PortalHandler.getPortalHandler(string).save();
         }
         for (String npc : NPCHandler.getNPCHandler().keySet()) {
 
-            NPCHandler.getNpcHandler(npc).save();
+            NPCHandler.getNpcHandler(npc, null).save();
         }
+        for (String npc : GUIHandler.getGUIHandlerMap().keySet()) {
+
+            GUIHandler.getGUI(npc).saveGUI();
+
+        }
+
     }
 
     public static FileManager getFileManager() {

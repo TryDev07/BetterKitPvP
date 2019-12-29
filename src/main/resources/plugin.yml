@@ -7,11 +7,13 @@ website: https://github.com/TryDev07
 commands:
   setspawn:
     description: set the spawn for the server
-  AddRandomSpawn:
+  addrandomspawn:
     description: add a random spawnpoint
   help:
     description: help command
-  Portal:
+  portal:
     description: Create/Delete a portal
   shop:
     description: set/remove shop
+  selector:
+    description: set/remove selector

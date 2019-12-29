@@ -13,7 +13,7 @@ public interface InterfaceNpc {
 
     void addNpc(Location location, EntityType type, String name, String ColorName);
 
-    void removeNpc(Player player, String name);
+    void removeNpc();
 
     void save();
 

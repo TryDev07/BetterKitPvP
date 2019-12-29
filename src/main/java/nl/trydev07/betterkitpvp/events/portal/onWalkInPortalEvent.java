@@ -21,11 +21,9 @@ public class onWalkInPortalEvent implements Listener {
     @EventHandler
     public void onMove(PlayerMoveEvent event) {
         if (!event.getFrom().getBlock().getLocation().equals(event.getTo().getBlock().getLocation())) {
-            System.out.println("2");
             for (PortalHandler portalHandler : PortalHandler.getPortalHandlerMap().values()) {
                 for (Location loc : portalHandler.getLocationList()) {
                     if (loc.equals(event.getTo().getBlock().getLocation())) {
-                        System.out.println("3");
 
                         event.getPlayer().teleport(LocationDeserializer.getLocationFromString(LocationHandler.getLocationHandler().OOBLocation.getSpawnLocation()));
                     }

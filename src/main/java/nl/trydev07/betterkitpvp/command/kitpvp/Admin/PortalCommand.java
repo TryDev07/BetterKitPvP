@@ -29,7 +29,7 @@ public class PortalCommand extends CommandHandler {
         if (args.length <= 0) {
             sender.sendMessage(utils.format("&7----------&8[&eBetterKitPvP&8]&7----------"));
             sender.sendMessage(utils.format(" &8•  &f/Portal Create [Name] [Material] &8- &7 Create a new Portal of your selection."));
-            sender.sendMessage(utils.format(" &8•  &f/Portal Remove [Name] &8- &7 Delete e existing Portal."));
+            sender.sendMessage(utils.format(" &8•  &f/Portal Remove [Name] &8- &7 Delete a existing Portal."));
             sender.sendMessage(utils.format(" &8•  &f/Portal Tool &8- &7 Get yourself a portal tool to make a new selection."));
             sender.sendMessage(utils.format(" &8•  &f/Portal SetWaterFlow [true/false] &8- &7 set water flow on true or false"));
             sender.sendMessage(utils.format("&7----------&8[&eBetterKitPvP&8]&7----------"));

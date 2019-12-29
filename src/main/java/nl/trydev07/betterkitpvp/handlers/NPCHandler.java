@@ -7,6 +7,7 @@ import nl.trydev07.betterkitpvp.handlers.interfaces.InterfaceNpc;
 import nl.trydev07.betterkitpvp.handlers.oob.OOBNpc;
 import nl.trydev07.betterkitpvp.utilitys.LocationDeserializer;
 import nl.trydev07.betterkitpvp.utilitys.utils;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
 import org.bukkit.entity.*;
@@ -25,11 +26,15 @@ public class NPCHandler implements InterfaceNpc {
 
     private static Map<String, NPCHandler> NPCHandler = new HashMap<String, NPCHandler>();
 
-    public static NPCHandler getNpcHandler(String name) {
+    public static NPCHandler getNpcHandler(String name, Player player) {
         if (!(name.isEmpty())) {
             for (String npc : NPCHandler.keySet()) {
                 if (npc.equals(name)) {
                     return NPCHandler.get(name);
+                }else {
+                    if (player != null) {
+                        player.sendMessage(utils.format(Core.getFileManager().getConfig("Messages.yml").get("ShopDoesNotExists").toString()));
+                    }
                 }
             }
         }
@@ -48,6 +53,8 @@ public class NPCHandler implements InterfaceNpc {
     private EntityType entityType;
     private Location location;
     private Entity entity;
+
+    private ArmorStand as;
 
 
     public NPCHandler(String name) {
@@ -69,19 +76,28 @@ public class NPCHandler implements InterfaceNpc {
 
         LivingEntity villager = (LivingEntity) location.getWorld().spawnEntity(location, type);
         villager.setCustomName(colorName);
-        villager.setCustomNameVisible(true);
+        villager.setCustomNameVisible(false);
         villager.setNoDamageTicks(1000000000);
         setAI(villager);
+
+        as = (ArmorStand) location.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
+        as.setCustomName(colorName);
+        as.setCustomNameVisible(true);
+        as.setGravity(false);
+        as.setVisible(false);
 
         this.entity = villager;
     }
 
 
     @Override
-    public void removeNpc(Player player, String name) {
-        if (!entity.isEmpty()) {
-            entity.remove();
-        }
+    public void removeNpc() {
+        entity.remove();
+        as.remove();
+        File file = new File(Core.getInstance().getDataFolder() + "\\Data\\NPC\\", name + ".json");
+
+        file.delete();
+        getNPCHandler().remove(name);
     }
 
     @Override
@@ -91,14 +107,11 @@ public class NPCHandler implements InterfaceNpc {
         oobNpc.setEntity(this.entityType);
         oobNpc.setLocation(LocationDeserializer.getStringFromLocation(this.location));
 
-        System.out.println("work1");
         File file = new File(Core.getInstance().getDataFolder() + "\\Data\\NPC\\", name + ".json");
         if (!file.exists()) {
             file.getParentFile().mkdirs();
-            System.out.println("work2");
 
             try {
-                System.out.println("work3");
 
                 file.createNewFile();
             } catch (IOException ex) {
@@ -116,6 +129,7 @@ public class NPCHandler implements InterfaceNpc {
         }
 
         entity.remove();
+        as.remove();
     }
 
     @Override
