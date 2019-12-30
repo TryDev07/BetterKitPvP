@@ -3,7 +3,7 @@ package nl.trydev07.betterkitpvp.handlers;
 import com.google.gson.Gson;
 import nl.trydev07.betterkitpvp.Core;
 import nl.trydev07.betterkitpvp.handlers.interfaces.InterfacePortal;
-import nl.trydev07.betterkitpvp.handlers.oob.OOBPortal;
+import nl.trydev07.betterkitpvp.handlers.oob.OOPPortal;
 import nl.trydev07.betterkitpvp.utilitys.LocationDeserializer;
 import nl.trydev07.betterkitpvp.utilitys.utils;
 import nl.trydev07.betterkitpvp.events.portal.onWaterFlowEvent;
@@ -44,7 +44,7 @@ public class PortalHandler implements InterfacePortal {
         return null;
     }
 
-    private OOBPortal portal = new OOBPortal();
+    private OOPPortal portal = new OOPPortal();
     private Gson gson = new Gson();
     private String name;
 
@@ -57,7 +57,7 @@ public class PortalHandler implements InterfacePortal {
     public PortalHandler() {
     }
 
-    public OOBPortal getOOBPortal() {
+    public OOPPortal getOOBPortal() {
         return portal;
     }
 
@@ -134,7 +134,7 @@ public class PortalHandler implements InterfacePortal {
             BufferedReader br = new BufferedReader(
                     new FileReader(Core.getInstance().getDataFolder() + "\\Data\\Portals\\" + name + ".json"));
             utils.Logger(Level.WARNING, name);
-            portal = gson.fromJson(br, OOBPortal.class);
+            portal = gson.fromJson(br, OOPPortal.class);
         } catch (IOException e) {
             e.printStackTrace();
         }

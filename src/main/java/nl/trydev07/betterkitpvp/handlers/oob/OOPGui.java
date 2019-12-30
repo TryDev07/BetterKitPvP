@@ -9,16 +9,16 @@ import java.util.Set;
  * Copyright to TryDev07 ©
  * Github: https://github.com/TryDev07
  */
-public class OOBGui {
+public class OOPGui {
 
 
     Map<String, String> inventory = new HashMap<String, String>();
 
-    public Map<String, String> getLocations() {
+    public Map<String, String> getInventory() {
         return inventory;
     }
 
-    public void setLocations(Map<String, String> locations) {
+    public void setInventory(Map<String, String> locations) {
         this.inventory = locations;
     }
 

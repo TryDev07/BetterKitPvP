@@ -4,10 +4,9 @@ import com.google.gson.Gson;
 import net.minecraft.server.v1_8_R3.NBTTagCompound;
 import nl.trydev07.betterkitpvp.Core;
 import nl.trydev07.betterkitpvp.handlers.interfaces.InterfaceNpc;
-import nl.trydev07.betterkitpvp.handlers.oob.OOBNpc;
+import nl.trydev07.betterkitpvp.handlers.oob.OOPNpc;
 import nl.trydev07.betterkitpvp.utilitys.LocationDeserializer;
 import nl.trydev07.betterkitpvp.utilitys.utils;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
 import org.bukkit.entity.*;
@@ -46,7 +45,7 @@ public class NPCHandler implements InterfaceNpc {
     }
 
     private Gson gson = new Gson();
-    private OOBNpc oobNpc;
+    private OOPNpc oobNpc;
 
     private String name;
     private String colorName;
@@ -58,7 +57,7 @@ public class NPCHandler implements InterfaceNpc {
 
 
     public NPCHandler(String name) {
-        oobNpc = new OOBNpc();
+        oobNpc = new OOPNpc();
 
         NPCHandler.put(name, this);
         this.name = name;
@@ -76,7 +75,6 @@ public class NPCHandler implements InterfaceNpc {
 
         LivingEntity villager = (LivingEntity) location.getWorld().spawnEntity(location, type);
         villager.setCustomName(colorName);
-        villager.setCustomNameVisible(false);
         villager.setNoDamageTicks(1000000000);
         setAI(villager);
 
@@ -137,7 +135,7 @@ public class NPCHandler implements InterfaceNpc {
         try {
             BufferedReader br = new BufferedReader(
                     new FileReader(Core.getInstance().getDataFolder() + "\\Data\\NPC\\" + name + ".json"));
-            oobNpc = gson.fromJson(br, OOBNpc.class);
+            oobNpc = gson.fromJson(br, OOPNpc.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -152,7 +150,7 @@ public class NPCHandler implements InterfaceNpc {
     }
 
 
-    public OOBNpc getOobNpc() {
+    public OOPNpc getOobNpc() {
         return oobNpc;
     }
 

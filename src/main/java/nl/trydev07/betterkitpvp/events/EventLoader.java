@@ -1,6 +1,7 @@
 package nl.trydev07.betterkitpvp.events;
 
 import nl.trydev07.betterkitpvp.Core;
+import nl.trydev07.betterkitpvp.events.GUI.onNpcInventoryEvent;
 import nl.trydev07.betterkitpvp.events.portal.onBlockBreakEvents;
 import nl.trydev07.betterkitpvp.events.portal.onClickEvent;
 import nl.trydev07.betterkitpvp.events.portal.onWalkInPortalEvent;
@@ -21,5 +22,7 @@ public class EventLoader {
         pluginManager.registerEvents(new onClickEvent(), Core.getInstance());
         pluginManager.registerEvents(new onWaterFlowEvent(), Core.getInstance());
         pluginManager.registerEvents(new onWalkInPortalEvent(), Core.getInstance());
+        pluginManager.registerEvents(new onNpcInventoryEvent(), Core.getInstance());
+
     }
 }

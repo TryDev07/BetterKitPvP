@@ -1,16 +1,21 @@
 package nl.trydev07.betterkitpvp.command.kitpvp.Admin;
 
+
 import nl.trydev07.betterkitpvp.Core;
 import nl.trydev07.betterkitpvp.command.CommandHandler;
 import nl.trydev07.betterkitpvp.handlers.GUIHandler;
 import nl.trydev07.betterkitpvp.handlers.NPCHandler;
 import nl.trydev07.betterkitpvp.utilitys.utils;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Vector;
 
 /* TryDev07 created on 14/12/2019
  * Project:  BetterKitPvP 
@@ -41,12 +46,10 @@ public class SelectorCommand extends CommandHandler {
         } else if (args[0].toLowerCase().equalsIgnoreCase("remove")) {
             NPCHandler.getNpcHandler("Selector", p).removeNpc();
             sender.sendMessage(utils.format(Core.getFileManager().getConfig("Messages.yml").get("SelectorRemove").toString()));
-        } else if (args[0].toLowerCase().equalsIgnoreCase("ui")) {
-            new GUIHandler("Shop").createInventory(p, "test", 15);
-
-            p.openInventory(GUIHandler.getGUI("Shop").getInventoryMap().get("test"));
-            GUIHandler.getGUI("Shop").addItem("test", new ItemStack(Material.BOW), 5);
-            sender.sendMessage(utils.format(Core.getFileManager().getConfig("Messages.yml").get("SelectorRemove").toString()));
+        } else if (args[0].toLowerCase().equalsIgnoreCase("addItem")) {
+            new GUIHandler("Selector").createInventory(p, "test", 18);
+            GUIHandler.getGUI("Selector").addItem("test", new ItemStack(Material.getMaterial(args[1].toUpperCase())), Integer.valueOf(args[2]));
+            p.openInventory(GUIHandler.getGUI("Selector").getInventoryMap().get("test"));
         } else {
             sender.sendMessage(utils.format("&7----------&8[&eBetterKitPvP&8]&7----------"));
             sender.sendMessage(utils.format(" &8•  &f/Selector Create &8- &7 Create the Selector at your location."));
@@ -54,4 +57,5 @@ public class SelectorCommand extends CommandHandler {
             sender.sendMessage(utils.format("&7----------&8[&eBetterKitPvP&8]&7----------"));
         }
     }
+
 }

@@ -3,7 +3,7 @@ package nl.trydev07.betterkitpvp.handlers;
 import com.google.gson.Gson;
 import nl.trydev07.betterkitpvp.Core;
 import nl.trydev07.betterkitpvp.handlers.interfaces.GUIInterface;
-import nl.trydev07.betterkitpvp.handlers.oob.OOBGui;
+import nl.trydev07.betterkitpvp.handlers.oob.OOPGui;
 import nl.trydev07.betterkitpvp.utilitys.InventoryDeserializer;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
@@ -28,10 +28,11 @@ public class GUIHandler implements GUIInterface {
     public static GUIHandler getGUI(String name) {
         if (!(GUIhandlermap.isEmpty())) {
             for (String s : GUIhandlermap.keySet()) {
+                System.out.println(s);
                 if (name.equals(s)) {
                     return GUIhandlermap.get(name);
                 } else {
-                    throw new NullPointerException("The name: " + name + " == Null on line 28 in nl.trydev07.betterkitpvp.handlers.GUIHandler");
+                    return null;
                 }
             }
         }
@@ -42,17 +43,29 @@ public class GUIHandler implements GUIInterface {
         return GUIhandlermap;
     }
 
-
     private Map<String, Inventory> inventoryMap = new WeakHashMap<String, Inventory>();
 
     private Inventory inventory;
     private String guiName;
-    private OOBGui oobGui;
+    private OOPGui OOPGui;
     private Gson gson = new Gson();
 
     public GUIHandler(String name) {
-        GUIhandlermap.put(name, this);
-        guiName = name;
+        if (!(GUIhandlermap.isEmpty())) {
+            for (String s : GUIhandlermap.keySet()) {
+                System.out.println(s);
+                if (name.equals(s)) {
+                    GUIhandlermap.get(name);
+                } else {
+                    guiName = name;
+                    GUIhandlermap.put(name, this);
+                }
+            }
+        }else{
+            guiName = name;
+            GUIhandlermap.put(name, this);
+        }
+
     }
 
 
@@ -69,8 +82,6 @@ public class GUIHandler implements GUIInterface {
         } else {
             //inv exists
         }
-
-
     }
 
     @Override
@@ -93,11 +104,19 @@ public class GUIHandler implements GUIInterface {
 
     @Override
     public void addItem(String invName, ItemStack item, Integer slot) {
-        if (inventoryMap.get(invName) != null) {
-            inventoryMap.get(invName).setItem(slot, item);
+        slot = slot - 1;
+        if (IsSlotLegit(invName, slot)) {
+            if (inventoryMap.get(invName) != null) {
+                if (inventoryMap.get(invName).getItem(slot) == null) {
+                    inventoryMap.get(invName).setItem(slot, item);
+                } else {
+                    //Their is already a item
+                }
+            } else {
+                //inv dousn't exixts
+            }
         } else {
-
-            //inv dousn't exixts
+            //Slot dousn't exixst
         }
 
     }
@@ -116,11 +135,11 @@ public class GUIHandler implements GUIInterface {
 
     @Override
     public void saveGUI() {
-        oobGui = new OOBGui();
+        OOPGui = new OOPGui();
 
         if (!inventoryMap.isEmpty()) {
             for (Map.Entry<String, Inventory> inventoryEntry : inventoryMap.entrySet()) {
-                oobGui.getLocations().put(inventoryEntry.getKey(), InventoryDeserializer.toBase64(inventoryEntry.getValue()));
+                OOPGui.getInventory().put(inventoryEntry.getKey(), InventoryDeserializer.toBase64(inventoryEntry.getValue()));
             }
         }
         File file = new File(Core.getInstance().getDataFolder() + "\\Data\\GUI\\", guiName + ".json");
@@ -133,7 +152,7 @@ public class GUIHandler implements GUIInterface {
             }
         }
 
-        String json = gson.toJson(oobGui);
+        String json = gson.toJson(OOPGui);
         try {
             FileWriter writer = new FileWriter(Core.getInstance().getDataFolder() + "\\Data\\GUI\\" + guiName + ".json");
             writer.write(json);
@@ -149,9 +168,20 @@ public class GUIHandler implements GUIInterface {
             BufferedReader br = new BufferedReader(
                     new FileReader(Core.getInstance().getDataFolder() + "\\Data\\GUI\\" + guiName + ".json"));
 
-            oobGui = gson.fromJson(br, OOBGui.class);
+            OOPGui = gson.fromJson(br, OOPGui.class);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        if (!OOPGui.getInventory().isEmpty()) {
+            try {
+                for (Map.Entry<String, String> s : OOPGui.getInventory().entrySet()) {
+                    inventoryMap.put(s.getKey(), InventoryDeserializer.fromBase64(s.getValue()));
+
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -159,12 +189,11 @@ public class GUIHandler implements GUIInterface {
         return inventoryMap;
     }
 
-
     public ItemStack[] getItems(String invName) {
         if (inventoryMap.get(invName) != null) {
             return inventoryMap.get(invName).getContents();
         }
-        throw new NullPointerException();
+        return null;
     }
 
     private boolean isIntLegit(int i) {
@@ -202,4 +231,17 @@ public class GUIHandler implements GUIInterface {
             throw new NullPointerException();
         }
     }
+
+    public static Integer getClosestTo(Integer slots, Integer number) {
+        return ((int) Math.ceil((double) slots / (double) number)) * number;
+    }
+
+    private Boolean IsSlotLegit(String name, int i) {
+        if (i < inventoryMap.get(name).getSize()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -9,7 +9,7 @@ import java.util.HashMap;
  * Copyright to TryDev07 ©
  * Github: https://github.com/TryDev07
  */
-public class OOBLocation {
+public class OOPLocation {
 
     String spawnLocation;
     HashMap<String, String> randomSpawnLocations = new HashMap<String, String>();

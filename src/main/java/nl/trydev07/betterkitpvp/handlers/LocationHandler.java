@@ -3,10 +3,9 @@ package nl.trydev07.betterkitpvp.handlers;
 import com.google.gson.Gson;
 import nl.trydev07.betterkitpvp.Core;
 import nl.trydev07.betterkitpvp.handlers.interfaces.InterfaceLocation;
-import nl.trydev07.betterkitpvp.handlers.oob.OOBLocation;
+import nl.trydev07.betterkitpvp.handlers.oob.OOPLocation;
 import nl.trydev07.betterkitpvp.utilitys.LocationDeserializer;
 import nl.trydev07.betterkitpvp.utilitys.utils;
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.io.*;
@@ -19,7 +18,7 @@ import java.util.logging.Level;
  */
 public class LocationHandler implements InterfaceLocation {
 
-    public OOBLocation OOBLocation = new OOBLocation();
+    public OOPLocation OOBLocation = new OOPLocation();
     private Gson gson = new Gson();
     private static LocationHandler locationHandler;
 
@@ -57,7 +56,7 @@ public class LocationHandler implements InterfaceLocation {
             BufferedReader br = new BufferedReader(
                     new FileReader(Core.getInstance().getDataFolder() + "\\Data\\Locations.json"));
 
-            OOBLocation = gson.fromJson(br, OOBLocation.class);
+            OOBLocation = gson.fromJson(br, OOPLocation.class);
         } catch (IOException e) {
             e.printStackTrace();
         }

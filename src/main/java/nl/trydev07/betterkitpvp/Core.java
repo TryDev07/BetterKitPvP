@@ -61,6 +61,17 @@ public class Core extends JavaPlugin {
             }
         }
 
+        File guiFolder = new File(Core.getInstance().getDataFolder() + "\\Data\\GUI\\");
+        if (guiFolder.exists() == true) {
+            File[] listOfFiles = guiFolder.listFiles();
+            for (int i = 0; i < listOfFiles.length; i++) {
+                if (listOfFiles[i].isFile()) {
+                    GUIHandler guiHandler = new GUIHandler(listOfFiles[i].getName().replaceAll(".json", ""));
+                    guiHandler.loadGUI();
+                }
+            }
+        }
+
 
     }
 
@@ -76,9 +87,7 @@ public class Core extends JavaPlugin {
             NPCHandler.getNpcHandler(npc, null).save();
         }
         for (String npc : GUIHandler.getGUIHandlerMap().keySet()) {
-
             GUIHandler.getGUI(npc).saveGUI();
-
         }
 
     }

@@ -31,15 +31,14 @@ public class InventoryDeserializer {
         String content = toBase64(playerInventory);
         String armor = itemStackArrayToBase64(playerInventory.getArmorContents());
 
-        return new String[] { content, armor };
+        return new String[]{content, armor};
     }
 
     /**
-     *
      * A method to serialize an {@link ItemStack} array to Base64 String.
-     *
-     * <p />
-     *
+     * <p>
+     * <p/>
+     * <p>
      * Based off of {@link #toBase64(Inventory)}.
      *
      * @param items to turn into a Base64 String.
@@ -69,9 +68,9 @@ public class InventoryDeserializer {
 
     /**
      * A method to serialize an inventory to Base64 string.
-     *
-     * <p />
-     *
+     * <p>
+     * <p/>
+     * <p>
      * Special thanks to Comphenix in the Bukkit forums or also known
      * as aadnk on GitHub.
      *
@@ -103,11 +102,10 @@ public class InventoryDeserializer {
     }
 
     /**
-     *
      * A method to get an {@link Inventory} from an encoded, Base64, string.
-     *
-     * <p />
-     *
+     * <p>
+     * <p/>
+     * <p>
      * Special thanks to Comphenix in the Bukkit forums or also known
      * as aadnk on GitHub.
      *
@@ -137,9 +135,9 @@ public class InventoryDeserializer {
 
     /**
      * Gets an array of ItemStacks from Base64 string.
-     *
-     * <p />
-     *
+     * <p>
+     * <p/>
+     * <p>
      * Base off of {@link #fromBase64(String)}.
      *
      * @param data Base64 string to convert to ItemStack array.

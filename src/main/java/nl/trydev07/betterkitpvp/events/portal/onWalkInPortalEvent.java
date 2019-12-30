@@ -2,11 +2,8 @@ package nl.trydev07.betterkitpvp.events.portal;
 
 import nl.trydev07.betterkitpvp.handlers.LocationHandler;
 import nl.trydev07.betterkitpvp.handlers.PortalHandler;
-import nl.trydev07.betterkitpvp.handlers.oob.OOBPortal;
 import nl.trydev07.betterkitpvp.utilitys.LocationDeserializer;
 import org.bukkit.Location;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;

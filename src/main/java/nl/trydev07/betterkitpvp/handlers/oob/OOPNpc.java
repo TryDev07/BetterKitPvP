@@ -9,7 +9,7 @@ import org.bukkit.entity.EntityType;
  * Copyright to TryDev07 ©
  * Github: https://github.com/TryDev07
  */
-public class OOBNpc {
+public class OOPNpc {
 
     private String name;
     private EntityType entity;

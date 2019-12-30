@@ -11,7 +11,7 @@ import java.util.List;
  * Copyright to TryDev07 ©
  * Github: https://github.com/TryDev07
  */
-public class OOBPortal {
+public class OOPPortal {
 
     String PortalName;
     Material material;

@@ -5,10 +5,8 @@ import nl.trydev07.betterkitpvp.Core;
 import nl.trydev07.betterkitpvp.command.kitpvp.Admin.addRandomSpawnCommand;
 import nl.trydev07.betterkitpvp.command.kitpvp.Admin.setSpawnCommand;
 import nl.trydev07.betterkitpvp.command.kitpvp.helpCommand;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
+import org.bukkit.command.*;
+import org.bukkit.command.defaults.BukkitCommand;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.StringUtil;
@@ -53,5 +51,8 @@ public abstract class CommandHandler implements CommandExecutor{
         execute(sender, args);
         return true;
     }
+
+
+
 
 }
