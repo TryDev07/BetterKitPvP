@@ -11,11 +11,28 @@ import org.bukkit.entity.Player;
  */
 public interface InterfaceNpc {
 
+    /**
+     * Add a new NPC to the Client.
+     *
+     * @param location  Get the location of where you want to add the npc.
+     * @param type      Select the Entity Type to determine which entity you want to spawn.
+     * @param name      give the Entity a name.
+     * @param ColorName add a custom name to our entity which is showed above his head.
+     */
     void addNpc(Location location, EntityType type, String name, String ColorName);
 
+    /**
+     * Remove the npc that you made.
+     */
     void removeNpc();
 
+    /**
+     * Save the NPCHandler class to our data folder as a JSON File.
+     */
     void save();
 
+    /**
+     * Loading all the data from the JSON file that was made when closing the plugin.
+     */
     void load();
 }

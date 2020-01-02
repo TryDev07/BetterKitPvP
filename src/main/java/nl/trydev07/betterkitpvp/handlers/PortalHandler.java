@@ -87,7 +87,7 @@ public class PortalHandler implements InterfacePortal {
     }
 
     @Override
-    public void setMaterial(String portalName, Material material, Player player) {
+    public void setMaterial(String portalName, Material material) {
         if (material != null) {
             if (portalName != null) {
                 Location point1 = location1;

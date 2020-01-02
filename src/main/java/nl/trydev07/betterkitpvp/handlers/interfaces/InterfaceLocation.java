@@ -11,12 +11,30 @@ import org.bukkit.entity.Player;
  */
 public interface InterfaceLocation {
 
+    /**
+     * Set the Default spawn point.
+     *
+     * @param player Getting the player to define his Location.
+     */
     void setSpawnPoint(Player player);
 
+    /**
+     * Add a spawn point to our Set<Location></> to add a extra random location.
+     *
+     * @param name   name of the randomSpawnPoint
+     * @param player Getting the player to define his Location.
+     */
     void addRandomSpawnPoint(String name, Player player);
 
+    /**
+     * Save the LocationHandler class to our data folder as a JSON File.
+     */
     void loadLocations();
 
+    /**
+     * Loading all the data from the JSON file that was made when closing the plugin.
+     */
     void save();
+
 
 }
