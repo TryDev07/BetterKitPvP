@@ -3,7 +3,7 @@ package nl.trydev07.betterkitpvp.handlers;
 import com.google.gson.Gson;
 import nl.trydev07.betterkitpvp.Core;
 import nl.trydev07.betterkitpvp.handlers.interfaces.GUIInterface;
-import nl.trydev07.betterkitpvp.handlers.oob.OOPGui;
+import nl.trydev07.betterkitpvp.handlers.oop.OOPGui;
 import nl.trydev07.betterkitpvp.utilitys.InventoryDeserializer;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
@@ -61,7 +61,7 @@ public class GUIHandler implements GUIInterface {
                     GUIhandlermap.put(name, this);
                 }
             }
-        }else{
+        } else {
             guiName = name;
             GUIhandlermap.put(name, this);
         }
@@ -232,9 +232,6 @@ public class GUIHandler implements GUIInterface {
         }
     }
 
-    public static Integer getClosestTo(Integer slots, Integer number) {
-        return ((int) Math.ceil((double) slots / (double) number)) * number;
-    }
 
     private Boolean IsSlotLegit(String name, int i) {
         if (i < inventoryMap.get(name).getSize()) {
@@ -244,4 +241,7 @@ public class GUIHandler implements GUIInterface {
         }
     }
 
+    public ItemStack getItemFromSlot(String invName, int slot) {
+        return inventoryMap.get(invName).getItem(slot);
+    }
 }

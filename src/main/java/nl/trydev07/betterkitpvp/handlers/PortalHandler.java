@@ -3,14 +3,13 @@ package nl.trydev07.betterkitpvp.handlers;
 import com.google.gson.Gson;
 import nl.trydev07.betterkitpvp.Core;
 import nl.trydev07.betterkitpvp.handlers.interfaces.InterfacePortal;
-import nl.trydev07.betterkitpvp.handlers.oob.OOPPortal;
+import nl.trydev07.betterkitpvp.handlers.oop.OOPPortal;
 import nl.trydev07.betterkitpvp.utilitys.LocationDeserializer;
 import nl.trydev07.betterkitpvp.utilitys.utils;
 import nl.trydev07.betterkitpvp.events.portal.onWaterFlowEvent;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import java.io.*;

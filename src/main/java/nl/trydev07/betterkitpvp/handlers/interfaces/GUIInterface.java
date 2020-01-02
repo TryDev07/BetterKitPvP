@@ -55,4 +55,12 @@ public interface GUIInterface {
      * Loading all the data from the JSON file that was made when closing the plugin.
      */
     void loadGUI();
+
+    /**
+     * Method to check which item is on the selected slot.
+     * @param slot Slot you want to take the item from.
+     * @param invName Contains the name of the inventory.
+     * @return ItemStack from the slot.
+     */
+    ItemStack getItemFromSlot(String invName, int slot);
 }

@@ -1,6 +1,5 @@
-package nl.trydev07.betterkitpvp.handlers.oob;
+package nl.trydev07.betterkitpvp.handlers.oop;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
 
 import java.util.ArrayList;

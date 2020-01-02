@@ -1,7 +1,5 @@
-package nl.trydev07.betterkitpvp.handlers.oob;
+package nl.trydev07.betterkitpvp.handlers.oop;
 
-import org.bukkit.Location;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 
 /* TryDev07 created on 12/13/2019

@@ -3,7 +3,7 @@ package nl.trydev07.betterkitpvp.handlers;
 import com.google.gson.Gson;
 import nl.trydev07.betterkitpvp.Core;
 import nl.trydev07.betterkitpvp.handlers.interfaces.InterfaceLocation;
-import nl.trydev07.betterkitpvp.handlers.oob.OOPLocation;
+import nl.trydev07.betterkitpvp.handlers.oop.OOPLocation;
 import nl.trydev07.betterkitpvp.utilitys.LocationDeserializer;
 import nl.trydev07.betterkitpvp.utilitys.utils;
 import org.bukkit.entity.Player;

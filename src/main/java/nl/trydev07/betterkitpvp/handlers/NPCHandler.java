@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import net.minecraft.server.v1_8_R3.NBTTagCompound;
 import nl.trydev07.betterkitpvp.Core;
 import nl.trydev07.betterkitpvp.handlers.interfaces.InterfaceNpc;
-import nl.trydev07.betterkitpvp.handlers.oob.OOPNpc;
+import nl.trydev07.betterkitpvp.handlers.oop.OOPNpc;
 import nl.trydev07.betterkitpvp.utilitys.LocationDeserializer;
 import nl.trydev07.betterkitpvp.utilitys.utils;
 import org.bukkit.Location;

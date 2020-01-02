@@ -1,8 +1,7 @@
-package nl.trydev07.betterkitpvp.handlers.oob;
+package nl.trydev07.betterkitpvp.handlers.oop;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /* TryDev07 created on 29/12/2019
  * Project:  BetterKitPvP

@@ -2,12 +2,10 @@ package nl.trydev07.betterkitpvp;
 
 import nl.trydev07.betterkitpvp.command.CommandLoader;
 import nl.trydev07.betterkitpvp.events.EventLoader;
-import nl.trydev07.betterkitpvp.handlers.GUIHandler;
-import nl.trydev07.betterkitpvp.handlers.LocationHandler;
-import nl.trydev07.betterkitpvp.handlers.NPCHandler;
-import nl.trydev07.betterkitpvp.handlers.PortalHandler;
+import nl.trydev07.betterkitpvp.handlers.*;
 import nl.trydev07.betterkitpvp.utilitys.FileManager;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -24,6 +22,7 @@ public class Core extends JavaPlugin {
     private static FileManager fileManager;
 
 
+    private KitHandler<String, ItemStack> stackKitHandler = new KitHandler<String, ItemStack>();
     private File f;
     private FileConfiguration fc;
 

@@ -1,6 +1,4 @@
-package nl.trydev07.betterkitpvp.handlers.oob;
-
-import org.bukkit.Location;
+package nl.trydev07.betterkitpvp.handlers.oop;
 
 import java.util.HashMap;
 
