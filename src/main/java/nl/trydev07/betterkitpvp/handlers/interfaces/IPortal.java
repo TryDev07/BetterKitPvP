@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
  * Copyright to TryDev07 ©
  * Github: https://github.com/TryDev07
  */
-public interface InterfacePortal {
+public interface IPortal {
 
     /**
      * Create a custom portal to random teleport you to the KitPVP map

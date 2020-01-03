@@ -1,10 +1,11 @@
 KitPvP:
 - spawn system [+]
 - portal system [+] //only make a random
-- NPC Shop [-]
+- NPC Shop [+]
     - manage the location of the Npc[+]
-    - GUI Manager [-]
-- NPC KitSelector [-]
+    - GUI Manager [+]
+- NPC KitSelector [+]
+- kit handler [-]
 - kill assist [-]
 - scoreboard [-]
 - Leaderboard [-]

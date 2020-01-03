@@ -2,7 +2,7 @@ package nl.trydev07.betterkitpvp.handlers;
 
 import com.google.gson.Gson;
 import nl.trydev07.betterkitpvp.Core;
-import nl.trydev07.betterkitpvp.handlers.interfaces.InterfacePortal;
+import nl.trydev07.betterkitpvp.handlers.interfaces.IPortal;
 import nl.trydev07.betterkitpvp.handlers.oop.OOPPortal;
 import nl.trydev07.betterkitpvp.utilitys.LocationDeserializer;
 import nl.trydev07.betterkitpvp.utilitys.utils;
@@ -21,7 +21,7 @@ import java.util.logging.Level;
  * Copyright to TryDev07 ©
  * Github: https://github.com/TryDev07
  */
-public class PortalHandler implements InterfacePortal {
+public class PortalHandler implements IPortal {
 
     private static Map<String, PortalHandler> portalHandlerMap = new HashMap<String, PortalHandler>();
 

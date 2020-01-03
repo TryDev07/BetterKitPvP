@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
  * Copyright to TryDev07 ©
  * Github: https://github.com/TryDev07
  */
-public interface InterfaceLocation {
+public interface ILocation {
 
     /**
      * Set the Default spawn point.

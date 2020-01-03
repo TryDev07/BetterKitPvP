@@ -17,5 +17,6 @@ public class CommandLoader {
         new PortalCommand();
         new ShopCommand();
         new SelectorCommand();
+        new KitCommand();
     }
 }

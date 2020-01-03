@@ -1,8 +1,6 @@
 package nl.trydev07.betterkitpvp.handlers.oop;
 
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 /* TryDev07 created on 02/01/2020
@@ -13,6 +11,7 @@ import java.util.Set;
 public class OOPKit<T> {
 
     private String name;
+    private Integer price;
     private T kitBind;
     private Set<T> ItemStack = new HashSet<T>();
 
@@ -38,5 +37,13 @@ public class OOPKit<T> {
 
     public void setKitBind(T kitBind) {
         this.kitBind = kitBind;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 }

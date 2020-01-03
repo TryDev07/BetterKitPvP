@@ -2,7 +2,7 @@ package nl.trydev07.betterkitpvp.handlers;
 
 import com.google.gson.Gson;
 import nl.trydev07.betterkitpvp.Core;
-import nl.trydev07.betterkitpvp.handlers.interfaces.GUIInterface;
+import nl.trydev07.betterkitpvp.handlers.interfaces.IGUI;
 import nl.trydev07.betterkitpvp.handlers.oop.OOPGui;
 import nl.trydev07.betterkitpvp.utilitys.InventoryDeserializer;
 import org.bukkit.Bukkit;
@@ -21,18 +21,15 @@ import java.util.WeakHashMap;
  * Github: https://github.com/TryDev07
  */
 
-public class GUIHandler implements GUIInterface {
+public class GUIHandler implements IGUI {
 
     private static Map<String, GUIHandler> GUIhandlermap = new HashMap<String, GUIHandler>();
 
     public static GUIHandler getGUI(String name) {
         if (!(GUIhandlermap.isEmpty())) {
             for (String s : GUIhandlermap.keySet()) {
-                System.out.println(s);
                 if (name.equals(s)) {
                     return GUIhandlermap.get(name);
-                } else {
-                    return null;
                 }
             }
         }

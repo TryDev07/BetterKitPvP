@@ -17,6 +17,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
  */
 public class onNpcInventoryEvent implements Listener {
 
+
     @EventHandler
     public void onNpcInventory(PlayerInteractEntityEvent event) {
         Player p = event.getPlayer();

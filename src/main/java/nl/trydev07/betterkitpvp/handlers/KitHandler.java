@@ -2,7 +2,7 @@ package nl.trydev07.betterkitpvp.handlers;
 
 import com.google.gson.Gson;
 import nl.trydev07.betterkitpvp.Core;
-import nl.trydev07.betterkitpvp.handlers.interfaces.KitInterface;
+import nl.trydev07.betterkitpvp.handlers.interfaces.IKit;
 import nl.trydev07.betterkitpvp.handlers.oop.OOPKit;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.io.BukkitObjectInputStream;
@@ -18,7 +18,7 @@ import java.util.Map;
  * Copyright to TryDev07 ©
  * Github: https://github.com/TryDev07
  */
-public class KitHandler implements KitInterface {
+public class KitHandler implements IKit {
 
 
     private static Map<String, KitHandler> kitHandlerMap = new HashMap<String, KitHandler>();
@@ -26,7 +26,6 @@ public class KitHandler implements KitInterface {
     public static KitHandler getKit(String name) {
         if (!(kitHandlerMap.isEmpty())) {
             for (String s : kitHandlerMap.keySet()) {
-                System.out.println(s);
                 if (name.equals(s)) {
                     return kitHandlerMap.get(name);
                 } else {
@@ -114,6 +113,16 @@ public class KitHandler implements KitInterface {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void setPrice(Integer price) {
+        oopKit.setPrice(price);
+    }
+
+    @Override
+    public Integer getPrice() {
+        return oopKit.getPrice();
     }
 
     public OOPKit<String> getOopKit() {

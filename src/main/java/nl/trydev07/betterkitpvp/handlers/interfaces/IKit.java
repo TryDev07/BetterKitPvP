@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
  * Copyright to TryDev07 ©
  * Github: https://github.com/TryDev07
  */
-public interface KitInterface {
+public interface IKit {
 
 
     void create(String kitName);
@@ -21,6 +21,10 @@ public interface KitInterface {
     void save();
 
     void load();
+
+    void setPrice(Integer price);
+
+    Integer getPrice();
 
 
 }

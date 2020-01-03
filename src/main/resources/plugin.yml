@@ -17,3 +17,5 @@ commands:
     description: set/remove shop
   selector:
     description: set/remove selector
+  Kits:
+    description: base kit command

@@ -7,7 +7,6 @@ import nl.trydev07.betterkitpvp.utilitys.FileManager;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 
@@ -22,7 +21,6 @@ public class Core extends JavaPlugin {
     private static FileManager fileManager;
 
 
-    private KitHandler<String, ItemStack> stackKitHandler = new KitHandler<String, ItemStack>();
     private File f;
     private FileConfiguration fc;
 

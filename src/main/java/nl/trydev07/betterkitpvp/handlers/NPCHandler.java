@@ -3,7 +3,7 @@ package nl.trydev07.betterkitpvp.handlers;
 import com.google.gson.Gson;
 import net.minecraft.server.v1_8_R3.NBTTagCompound;
 import nl.trydev07.betterkitpvp.Core;
-import nl.trydev07.betterkitpvp.handlers.interfaces.InterfaceNpc;
+import nl.trydev07.betterkitpvp.handlers.interfaces.INpc;
 import nl.trydev07.betterkitpvp.handlers.oop.OOPNpc;
 import nl.trydev07.betterkitpvp.utilitys.LocationDeserializer;
 import nl.trydev07.betterkitpvp.utilitys.utils;
@@ -20,7 +20,7 @@ import java.util.Map;
  * Copyright to TryDev07 ©
  * Github: https://github.com/TryDev07
  */
-public class NPCHandler implements InterfaceNpc {
+public class NPCHandler implements INpc {
 
 
     private static Map<String, NPCHandler> NPCHandler = new HashMap<String, NPCHandler>();
@@ -30,10 +30,6 @@ public class NPCHandler implements InterfaceNpc {
             for (String npc : NPCHandler.keySet()) {
                 if (npc.equals(name)) {
                     return NPCHandler.get(name);
-                }else {
-                    if (player != null) {
-                        player.sendMessage(utils.format(Core.getFileManager().getConfig("Messages.yml").get("ShopDoesNotExists").toString()));
-                    }
                 }
             }
         }

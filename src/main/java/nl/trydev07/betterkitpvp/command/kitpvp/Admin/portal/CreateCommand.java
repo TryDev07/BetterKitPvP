@@ -15,6 +15,6 @@ public class CreateCommand {
 
     public CreateCommand(Player player, String name, Material material){
         new PortalHandler().Create(name);
-        PortalHandler.getPortalHandler(name).setMaterial(name, material, player);
+        PortalHandler.getPortalHandler(name).setMaterial(name, material);
     }
 }

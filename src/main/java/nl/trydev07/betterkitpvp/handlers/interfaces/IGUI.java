@@ -3,7 +3,7 @@ package nl.trydev07.betterkitpvp.handlers.interfaces;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
-public interface GUIInterface {
+public interface IGUI {
 
 
     /**
@@ -25,7 +25,7 @@ public interface GUIInterface {
     /**
      * Remove a GUI out of the Map and Memory.
      *
-     * @param InvName
+     * @param InvName Contains the name of the inventory you want to remove.
      */
     void removeGUI(String InvName);
 
